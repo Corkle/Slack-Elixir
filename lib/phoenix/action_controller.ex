@@ -12,7 +12,7 @@ defmodule Slack.Phoenix.ActionController do
 
   ```
   defmodule App.SlackController do
-    use Slack.Phoenix.ActionController, token: "TOKEN"
+    use Slack.Phoenix.ActionController, token: "SLACK_TOKEN"
 
     import Plug.Conn
 
@@ -22,7 +22,7 @@ defmodule Slack.Phoenix.ActionController do
       |> text("Working on this action")
     end
 
-    def handle_action(command, conn, slack) do
+    def handle_command(command, conn, slack) do
       conn
       |> put_status(200)
       |> text("Working on this command")
@@ -32,7 +32,7 @@ defmodule Slack.Phoenix.ActionController do
   defmodule App.Router do
     use Phoenix.Router
 
-    post "/*path", App.SlackController, :dispatch
+    post "/slack/*path", App.SlackController, :dispatch
   end
   ```
   ## Handling Requests

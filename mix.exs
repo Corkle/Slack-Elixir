@@ -8,14 +8,12 @@ defmodule Slack.Mixfile do
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
-    # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger]]
   end
 
@@ -23,17 +21,24 @@ defmodule Slack.Mixfile do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:my_dep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:my_dep, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     [{:phoenix, "~> 1.2.1"},
-     {:credo, "~> 0.5", only: [:dev, :test]}]
+     {:credo, "~> 0.5", only: [:dev, :test]},
+     {:ex_doc, ">= 0.0.0", only: :dev}]
+  end
+
+  defp description do
+    """
+    Handle Slack slash command and interactive message HTTP requests in Elixir
+    """
+  end
+
+  defp package do
+    [
+      name: :slack_interactive,
+      maintainers: ["Corey McDaniel"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/Corkle/Slack-Elixir"}
+    ]
   end
 end
