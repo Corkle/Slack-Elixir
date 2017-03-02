@@ -46,7 +46,7 @@ request type.
   end
   ```
 
-  ## Handling Requests
+## Handling Requests
 
   Define a route in your Phoenix router with the `:dispatch` action
   to validate incoming requests and dispatch to the overridable
@@ -73,7 +73,8 @@ request type.
 
   A `Plug.Conn` is expected as the return value for these functions.
 
-  ## Slack Argument
+## Slack Argument
+
   The third argument passed to the handle functions contains the
   below fields. The default value of these fields is `nil` if the
   incoming request did not contain a matching field name.
@@ -89,7 +90,8 @@ request type.
   * token - validation token used to confirm request came from Slack
   * reponse_url - string containing URL for delayed response to request
 
-  Action request only fields (nil for command requests)
+
+  Action request only fields (defaults to `nil` for command requests):
   * callback_id - string of callback_id from message attachment
   * action_ts - string timestamp when action occurred
   * message_ts - string timestamp when message containing action
