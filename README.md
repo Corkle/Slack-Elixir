@@ -11,11 +11,11 @@ Documentation can be found at [https://hexdocs.pm/slack_interactive](://hexdocs.
 
 ## Installation
 
-The package can be installed by adding `slack_interactive` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `slack` with reference to `hex: :slack_interactive` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:slack_interactive, "~> 0.1.0"}]
+  [{:slack, "~> 0.1.0", hex: :slack_interactive}]
 end
 ```
 
