@@ -27,9 +27,10 @@ defmodule Slack do
   * attachment_id - string id for specific attachment within message
   * original_message - original message JSON object
 
-  See Slack docs for [responding to button actions] and [slash commands]
+  See Slack docs for [responding to button and menu actions] and [slash commands]
 
   [responding to button actions]: https://api.slack.com/docs/message-buttons
+  [responding to menu actions]: https://api.slack.com/docs/message-menus
   [slash commands]: https://api.slack.com/slash-commands
   """
 
@@ -97,6 +98,8 @@ defmodule Slack do
     {:ok, slack}
   end
 
+  defp put_action(struct, %{"name" => name, "selected_options" => [opt]}),
+    do: {:ok, Map.put(struct, :action, %{name: name, value: opt["value"]})}
   defp put_action(struct, %{"name" => name, "value" => value}),
     do: {:ok, Map.put(struct, :action, %{name: name, value: value})}
   defp put_action(_, _),
