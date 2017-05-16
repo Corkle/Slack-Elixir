@@ -27,10 +27,10 @@ defmodule Slack do
   * attachment_id - string id for specific attachment within message
   * original_message - original message JSON object
 
-  See Slack docs for [responding to button and menu actions] and [slash commands]
+  See Slack docs for [responding to button] and [menu actions] and [slash commands]
 
-  [responding to button actions]: https://api.slack.com/docs/message-buttons
-  [responding to menu actions]: https://api.slack.com/docs/message-menus
+  [responding to button]: https://api.slack.com/docs/message-buttons
+  [menu actions]: https://api.slack.com/docs/message-menus
   [slash commands]: https://api.slack.com/slash-commands
   """
 
