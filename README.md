@@ -2,12 +2,12 @@
 
 A simple wrapper for handling interactive Slack HTTP requests.
 
-Currently, only [slash command] and [interactive message button] requests are supported.
+Currently, only [slash command] and [interactive message] (button & menu) requests are supported.
 
 Documentation can be found at [https://hexdocs.pm/slack_interactive](://hexdocs.pm/slack_interactive).
 
 [slash command]: https://api.slack.com/slash-commands
-[interactive message button]: https://api.slack.com/docs/message-buttons
+[interactive message]: https://api.slack.com/docs/interactive-messages
 
 ## Installation
 
@@ -15,7 +15,7 @@ The package can be installed by adding `slack` with reference to `hex: :slack_in
 
 ```elixir
 def deps do
-  [{:slack, "~> 0.1.0", hex: :slack_interactive}]
+  [{:slack, "~> 0.1.1", hex: :slack_interactive}]
 end
 ```
 
@@ -99,8 +99,13 @@ request type.
   * attachment_id - string id for specific attachment within message
   * original_message - original message JSON object
 
-  See Slack docs for [responding to button actions] and [slash commands]
+  See Slack docs for [responding to button] and [menu actions] and [slash commands]
 
-  [responding to button actions]: https://api.slack.com/docs/message-buttons
+  [responding to button]: https://api.slack.com/docs/message-buttons
+  [menu actions]: https://api.slack.com/docs/message-menus
   [slash commands]: https://api.slack.com/slash-commands
-  """
+
+## Changelog
+
+### [0.1.1] - 2017-16-05
+ - **Added** Interactive Menu Message support
